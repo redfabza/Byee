@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ลาก่อนนะพวกเรา 🌸</title>
+
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #ffe4e1, #e0ffff, #fffacd);
+  overflow: hidden;
+}
+
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.petal {
+  position: absolute;
+  width: 14px;
+  height: 18px;
+  background: radial-gradient(circle at 30% 30%, #ff9acb, #ffc8ef);
+  border-radius: 50% 0 50% 50%;
+  opacity: 0.85;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0deg); }
+  100% { transform: translateY(110vh) rotate(720deg); }
+}
+
+.slide-container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.slide {
+  display: none;
+  height: 100vh;
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px 220px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(6px);
+}
+
+.slide.active {
+  display: flex;
+}
+
+h1 {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  color: #ff4fa3;
+  margin-bottom: 20px;
+}
+
+p, .final-msg {
+  font-size: clamp(1rem, 4vw, 1.4rem);
+  max-width: 90%;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+.final-msg {
+  font-weight: bold;
+  color: #ff1493;
+  font-size: clamp(1.3rem, 5vw, 2rem);
+}
+
+.typing::after {
+  content: "|";
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.photos {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* 🔥 รูปเล็กลงแล้ว */
+.photos img {
+  width: 130px;
+  max-width: 40%;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  object-fit: cover;
+}
+
+.nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(255,255,255,0.95));
+  z-index: 3;
+}
+
+button {
+  background: #ff69b4;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+}
+</style>
+</head>
+<body>
+
+<div class="petals" id="petals"></div>
+
+<div class="slide-container">
+
+<div class="slide active">
+<h1>ลาก่อนนะพวกมึง 🌸</h1>
+<p class="typing">วันปัจฉิมมาไวชิบหายเลยว่ะ แต่ก็สนุกที่ได้เจอพวกมึงทุกคน</p>
+</div>
+
+<div class="slide">
+<h1>ขอบคุณที่เป็นเพื่อน</h1>
+<p class="typing">หัวเราะด้วยกัน ป่วนด้วยกัน เศร้าก็มี แต่มันคือช่วงเวลาที่ดีที่สุดในชีวิตกู</p>
+</div>
+
+<div class="slide">
+<h1>จากนี้ไป...</h1>
+<p class="typing">แต่ละคนก็ไปไล่ล่าความฝันของตัวเอง ทำให้สุด อย่าเสียดายทีหลัง</p>
+</div>
+
+<div class="slide">
+<h1>ใช้ชีวิตให้เต็มที่</h1>
+<p class="typing">ผิดก็ลุกใหม่ ชีวิตมันสั้น อย่าปล่อยให้เสียเวลา</p>
+</div>
+
+<div class="slide">
+<h1>เจอกันใหม่นะ</h1>
+<p class="typing">รักพวกมึงทุกคน บอย นกน้อย ตัน เพชร หนึ่ง อ๋อง ตัง เหมี่ยว</p>
+
+<div class="photos">
+  <img src="https://i.postimg.cc/N9G5KqDH/1772725620499.jpg">
+  <img src="https://i.postimg.cc/HcWVrDzc/1772725633772.jpg">
+  <img src="https://i.postimg.cc/R3LWCV7v/1772725640650.jpg">
+</div>
+
+<div class="final-msg typing">อย่าลืมเรื่องราวที่ผ่านมานะ ไอ้พวกบ้า</div>
+<p class="typing">ส่งรูปอัปเดตชีวิตมาให้ดูบ้าง อย่าหายไปไหนล่ะ</p>
+</div>
+
+</div>
+
+<div class="nav">
+<button id="prev" disabled>ก่อนหน้า</button>
+<button id="next">ถัดไป</button>
+</div>
+
+<script>
+const petalsContainer = document.getElementById('petals');
+for (let i = 0; i < 50; i++) {
+  const petal = document.createElement('div');
+  petal.classList.add('petal');
+  petal.style.left = Math.random() * 100 + 'vw';
+  petal.style.animationDuration = (Math.random() * 6 + 6) + 's';
+  petal.style.animationDelay = Math.random() * 5 + 's';
+  petalsContainer.appendChild(petal);
+}
+
+const slides = document.querySelectorAll('.slide');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+let current = 0;
+
+function typeWriter(element, speed = 30) {
+  const text = element.textContent;
+  element.textContent = "";
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      element.textContent += text.charAt(i);
+      i++;
+      setTimeout(typing, speed);
+    }
+  }
+  typing();
+}
+
+function startTyping(slide) {
+  const texts = slide.querySelectorAll(".typing");
+  texts.forEach(el => {
+    if (!el.dataset.typed) {
+      typeWriter(el);
+      el.dataset.typed = "true";
+    }
+  });
+}
+
+function showSlide(index) {
+  slides.forEach(s => s.classList.remove('active'));
+  slides[index].classList.add('active');
+
+  prevBtn.disabled = index === 0;
+  nextBtn.disabled = index === slides.length - 1;
+
+  startTyping(slides[index]);
+}
+
+prevBtn.onclick = () => {
+  if (current > 0) {
+    current--;
+    showSlide(current);
+  }
+};
+
+nextBtn.onclick = () => {
+  if (current < slides.length - 1) {
+    current++;
+    showSlide(current);
+  }
+};
+
+window.onload = () => {
+  startTyping(slides[0]);
+};
+</script>
+
+</body>
+</html>
